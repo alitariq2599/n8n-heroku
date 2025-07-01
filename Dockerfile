@@ -2,8 +2,8 @@ FROM n8nio/n8n:latest
 
 USER root
 
-# Update packages and install FFmpeg
-RUN apt-get update && apt-get install -y ffmpeg --no-install-recommends && rm -rf /var/lib/apt/lists/*
+# Add ffmpeg using Alpine's 'apk' package manager
+RUN apk update && apk add --no-cache ffmpeg
 
 WORKDIR /home/node/packages/cli
 ENTRYPOINT []
